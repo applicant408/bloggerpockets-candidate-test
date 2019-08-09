@@ -7,11 +7,6 @@ class PostsController < ApplicationController
     if params[:sort].present?
       @posts = @posts.order("created_at #{params[:sort]}") # TODO: Solve SQL injection
     end
-
-    # TODO: Remove this, it's not needed
-    respond_to do |format|
-      format.html
-    end
   end
 
   def show
