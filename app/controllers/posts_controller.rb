@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(published: true).includes(:user) # TODO: Use .published scope
+    @posts = Post.published.includes(:user)
 
     if params[:sort].present?
       @posts = @posts.order("created_at #{params[:sort]}") # TODO: Solve SQL injection
