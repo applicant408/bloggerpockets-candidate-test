@@ -5,7 +5,10 @@ class User < ApplicationRecord
   has_many :posts, -> { published }
 
   validates :name, :email, presence: true
-  # TODO: Add User#to_s
+
+  def to_s
+    name
+  end
 
   def as_json(_options)
     super(only: :name, methods: :posts)
