@@ -1,13 +1,14 @@
 <h1>Posts</h1>
 
-<div>
+<div> <%# TODO: Check what this looks like, is it needed? %>
   Sort by: <%= link_to "Newest first", posts_path(sort: :desc) %> | <%= link_to 'Oldest first', posts_path(sort: :asc) %>
 </div>
 
-<% @posts.each do |post| %>
-  <main>
+<% @posts.each do |post| %> <%# TODO: Render collection with partial %>
+  <main> <%# TODO: HTML5 main tag https://www.w3schools.com/tags/tag_main.asp %>
     <h2><%= link_to post.title, post_path(post) %></h2>
-
+  
+    <%# TODO: Consider user#to_s %>
     <p>Posted by: <%= link_to post.user.name, user_path(post.user) %>, <%= time_ago_in_words post.created_at %> ago</p>
     <p><%= post.body %></p>
     <hr />

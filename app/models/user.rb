@@ -3,4 +3,8 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :posts
+
+  # TODO: Validate name, it's used everywhere
+  # TODO: Add User#to_s
+  # TODO: Emails should be unique
 end

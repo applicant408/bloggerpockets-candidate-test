@@ -2,6 +2,7 @@
 
 class Comment < ApplicationRecord
   belongs_to :user
+   # TODO: add inverse scopes
 
   scope :published, -> { where(published: true) }
 end

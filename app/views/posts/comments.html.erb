@@ -1,9 +1,9 @@
 <h1>Comments on <%= link_to @post.title, post_path(@post) %></h1>
 
-<ol>
+<ol> <%# TODO: Indent correctly %>
 <% @comments.each do |comment| %>
 <li>
-<%= comment.body %><br />- <%= link_to comment.user.name %>
+<%= comment.body %><br />- <%= link_to comment.user.name %> <%# TODO: Make link actually go somewhere %>
 </li>
 <% end %>
-</ul>
+</ul> <%# TODO: Close with an OL, not a UL %>

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :posts do
-    get :comments, on: :member
+  resources :posts do # TODO: Restrict to useful routes
+    get :comments, on: :member # TODO: Make RESTful
   end
 
   resources :users
