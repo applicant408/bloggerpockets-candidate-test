@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   has_many :comments
 
   validates :title, :body, presence: true
-  # TODO: comments#published has default: false, null: false
 
   scope :published, -> { where(published: true) }
 
