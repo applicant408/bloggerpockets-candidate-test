@@ -1,7 +1,10 @@
 <h1>Posts</h1>
 
-<div> <%# TODO: Check what this looks like, is it needed? %>
-  Sort by: <%= link_to "Newest first", posts_path(sort: :desc) %> | <%= link_to 'Oldest first', posts_path(sort: :asc) %>
+<div>
+  Sort by:
+  <%= link_to "Newest first", posts_path(sort: :desc) %>
+  |
+  <%= link_to 'Oldest first', posts_path(sort: :asc) %>
 </div>
 
 <%= render partial: "post", collection: @posts, spacer_template: "hr_divider" %>
