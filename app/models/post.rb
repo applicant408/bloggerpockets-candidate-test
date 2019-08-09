@@ -4,9 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
 
-  validates_presence_of :title # TODO: use modern Rails validations
-  validates_presence_of :body # TODO: use modern Rails validations
-
+  validates :title, :body, presence: true
   # TODO: comments#published has default: false, null: false
 
   scope :published, -> { where(published: true) }
