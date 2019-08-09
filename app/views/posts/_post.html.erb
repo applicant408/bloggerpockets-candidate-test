@@ -1,0 +1,8 @@
+<main> <%# TODO: HTML5 main tag https://www.w3schools.com/tags/tag_main.asp %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+
+  <%# TODO: Consider user#to_s %>
+  <p>Posted by: <%= link_to post.user.name, user_path(post.user) %>, <%= time_ago_in_words post.created_at %> ago</p>
+  <p><%= post.body %></p>
+  <hr />
+</main>
