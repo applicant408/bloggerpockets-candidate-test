@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :posts do # TODO: Restrict to useful routes
-    get :comments, on: :member # TODO: Make RESTful
+    resources :comments, only: :index
   end
 
   resources :users

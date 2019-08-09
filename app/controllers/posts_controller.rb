@@ -9,10 +9,4 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
-
-  # TODO: Make this RESTful
-  def comments
-    @post = Post.find(params[:id])
-    @comments = @post.comments.includes(:user)
-  end
 end
