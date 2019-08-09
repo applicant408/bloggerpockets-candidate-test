@@ -7,4 +7,8 @@ class User < ApplicationRecord
   # TODO: Validate name, it's used everywhere
   # TODO: Add User#to_s
   # TODO: Emails should be unique
+
+  def as_json(_options)
+    super(only: :name)
+  end
 end
