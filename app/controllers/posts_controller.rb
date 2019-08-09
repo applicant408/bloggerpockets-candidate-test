@@ -2,9 +2,8 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(published: true) # TODO: Use .published scope
-    # TODO: include(:user) to avoid N+1
-    
+    @posts = Post.where(published: true).includes(:user) # TODO: Use .published scope
+
     if params[:sort].present?
       @posts = @posts.order("created_at #{params[:sort]}") # TODO: Solve SQL injection
     end
@@ -22,7 +21,6 @@ class PostsController < ApplicationController
   # TODO: Make this RESTful
   def comments
     @post = Post.find(params[:id])
-    @comments = @post.comments
-    # TODO: include(:user) to avoid N+1
+    @comments = @post.comments.includes(:user)
   end
 end
