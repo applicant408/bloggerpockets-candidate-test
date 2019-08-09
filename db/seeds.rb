@@ -1,21 +1,19 @@
 # frozen_string_literal: true
 
-# TODO: Use factory bot instead
 100.times do
   user = User.create!(name: Faker::Name.name,
                       email: Faker::Internet.email,
                       password: Faker::Internet.password(8))
 
   3.times do
-    Post.create!(title: Faker::Lorem.sentence.gsub(/\./, ""),
+    Post.published.create!(title: Faker::Lorem.sentence.gsub(/\./, ""),
                  body: Faker::Lorem.paragraph,
-                 user: user,
-                 published: true)
+                 user: user)
   end
 end
 
 Post.all.each do |post|
   2.times do
-    post.comments.create body: Faker::Lorem.sentence, user: User.all.sample, published: true # TODO: User.all.sample, twice is not performant
+    post.comments.create body: Faker::Lorem.sentence, user: User.all.sample, published: true
   end
 end
