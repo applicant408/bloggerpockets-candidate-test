@@ -6,9 +6,8 @@
                       password: Faker::Internet.password(8))
 
   3.times do
-    Post.published.create!(title: Faker::Lorem.sentence.gsub(/\./, ""),
-                 body: Faker::Lorem.paragraph,
-                 user: user)
+    user.posts.published.create!(title: Faker::Lorem.sentence.gsub(/\./, ""),
+                                 body: Faker::Lorem.paragraph)
   end
 end
 
