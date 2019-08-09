@@ -10,4 +10,8 @@ class Post < ApplicationRecord
   # TODO: comments#published has default: false, null: false
 
   scope :published, -> { where(published: true) }
+
+  def to_s
+    title
+  end
 end
