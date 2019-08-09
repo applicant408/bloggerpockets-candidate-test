@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts # TODO: Not needed if we render collection
-    # TODO: Perhaps we should only show published posts?
 
     respond_to do |format|
       format.html

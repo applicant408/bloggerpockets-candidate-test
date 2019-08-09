@@ -3,7 +3,5 @@
 <p><%= link_to "View as JSON", user_path(@user, format: 'json') %></p> <%# TODO: Consistent quotes, symbol, use Rubocop? %>
 
 <ul>
-  <% @posts.each do |post| %> <%# TODO: Render collection with partial %>
-  <li><%= link_to post.title, post_path(post) %> <%# TODO: Closing li tag, indenting %>
-  <% end %>
+  <%= render partial: "posts/post_summary", collection: @user.posts, as: :post %>
 </ul>
