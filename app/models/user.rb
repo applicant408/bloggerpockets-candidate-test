@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :posts, -> { published }
+  has_many :comments
 
   validates :name, :email, presence: true
 
