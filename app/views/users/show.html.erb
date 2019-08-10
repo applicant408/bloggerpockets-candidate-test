@@ -1,9 +1,9 @@
-<h1><%= @user.name %></h1>
+<h1><%= @user %></h1>
 
-<p><%= link_to "View as JSON", user_path(@user, format: 'json') %></p>
+<p><%= link_to "View as JSON", user_path(@user, format: :json) %></p>
+
+<h2>Posts</h2>
 
 <ul>
-  <% @posts.each do |post| %>
-  <li><%= link_to post.title, post_path(post) %>
-  <% end %>
+  <%= render partial: "posts/post_summary", collection: @user.posts, as: :post %>
 </ul>

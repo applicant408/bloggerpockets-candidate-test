@@ -1,0 +1,5 @@
+<div>
+  <h2><%= link_to post, post_path(post) %></h2>
+  <p>Posted by: <%= link_to post.user, user_path(post.user) %>, <%= time_ago_in_words post.created_at %> ago</p>
+  <p><%= post.body %></p>
+</div>

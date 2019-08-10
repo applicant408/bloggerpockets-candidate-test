@@ -6,15 +6,17 @@
                       password: Faker::Internet.password(8))
 
   3.times do
-    Post.create!(title: Faker::Lorem.sentence.gsub(/\./, ""),
-                 body: Faker::Lorem.paragraph,
-                 user: user,
-                 published: true)
+    user.posts.published.create!(title: Faker::Lorem.sentence.gsub(/\./, ""),
+                                 body: Faker::Lorem.paragraph)
   end
 end
 
+users = User.all.to_a
+
 Post.all.each do |post|
-  2.times do
-    post.comments.create body: Faker::Lorem.sentence, user: User.all.sample, published: true
+  users.sample(2).each do |user|
+    post.comments.create!(body: Faker::Lorem.sentence,
+                          user: user,
+                          published: true)
   end
 end
